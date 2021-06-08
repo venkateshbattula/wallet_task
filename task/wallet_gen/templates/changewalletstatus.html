@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Integrate Wallet</title>
+    <style>
+    fieldset legend{
+        font-weight: bold;
+        font-size: 24px;
+        color:#CC0000;
+        text-align: center;
+        }
+    table{
+        margin: 0 auto;
+        width:600px;
+        }
+        table tr th{
+        vertical-align: top;
+        }
+    ul.errorlist{
+            margin:0px;
+            padding:0px;
+            }
+            ul.errorlist li{
+            list-style-type:none;
+            color:#CC0000;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>User Integrate Wallet Form</legend>
+    <form action="" method="post" novalidate >
+        {% csrf_token %}
+        <table cellspacing="2" cellpadding="3" border="1">
+            {% if message %}
+            <tr>
+                <th colspan="2" style="color:green;">
+                    {{ message }}
+                </th>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>
+                    {{ locForm.id.label }}
+                </th>
+                <td>
+                    {{ locForm.id }} {{ locForm.id.errors }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    {{ locForm.user_email.label }}
+                </th>
+                <td>
+                    {{ locForm.user_email }} {{ locForm.user_email.errors }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    {{ locForm.status.label }}
+                </th>
+                <td>
+                    {{ locForm.status }} {{ locForm.status.errors }} <br>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    {{ locForm.token.label }}
+                </th>
+                <td>
+                    {{ locForm.token }} {{ locForm.token.errors }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <input type="reset" value="Reset Form">
+                </th>
+                <th>
+                    <input type="submit" value="Submit Form">
+                </th>
+            </tr>
+        </table>
+    </form>
+    </fieldset>
+</body>
+</html>
